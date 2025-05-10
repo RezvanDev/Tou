@@ -126,7 +126,7 @@ const GuideCatalogPage: React.FC = () => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Фильтры */}
-          <div className="lg:w-1/4 order-2 lg:order-1">
+          <div className="lg:w-1/4 order-1">
             <GuideFilter 
               filters={filters} 
               setFilters={setFilters} 
@@ -136,7 +136,7 @@ const GuideCatalogPage: React.FC = () => {
           </div>
 
           {/* Список гидов */}
-          <div className="lg:w-3/4 order-1 lg:order-2">
+          <div className="lg:w-3/4 order-2">
             {/* Инструменты сортировки */}
             <div className="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row justify-between items-center">
               <div className="mb-4 sm:mb-0">
@@ -162,7 +162,7 @@ const GuideCatalogPage: React.FC = () => {
 
             {/* Результаты */}
             {filteredGuides.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredGuides.map(guide => (
                   <GuideCard key={guide.id} guide={guide} />
                 ))}
