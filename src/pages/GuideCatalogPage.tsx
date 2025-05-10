@@ -118,13 +118,13 @@ const GuideCatalogPage: React.FC = () => {
     <div className="py-10">
       <div className="container-custom">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-4">Поиск гидов</h1>
-          <p className="text-gray-600">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Поиск гидов</h1>
+          <p className="text-sm sm:text-base text-gray-600">
             Найдите профессиональных гидов, которые помогут вам открыть для себя красоту и историю Узбекистана
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
           {/* Фильтры */}
           <div className="lg:w-1/4 order-1">
             <GuideFilter 
@@ -138,17 +138,17 @@ const GuideCatalogPage: React.FC = () => {
           {/* Список гидов */}
           <div className="lg:w-3/4 order-2">
             {/* Инструменты сортировки */}
-            <div className="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row justify-between items-center">
-              <div className="mb-4 sm:mb-0">
-                <span className="text-gray-600 mr-2">Найдено:</span>
+            <div className="bg-white rounded-lg shadow-md p-3 sm:p-4 mb-4 sm:mb-6 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
+              <div className="text-sm">
+                <span className="text-gray-600 mr-1">Найдено:</span>
                 <span className="font-semibold">{filteredGuides.length} гидов</span>
               </div>
               <div className="flex items-center">
-                <span className="text-gray-600 mr-2">Сортировать:</span>
+                <span className="text-gray-600 mr-1 text-sm">Сортировать:</span>
                 <select
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
-                  className="input-field py-1 px-3"
+                  className="input-field py-1 px-2 text-sm"
                 >
                   <option value="rating-desc">По рейтингу (высокий)</option>
                   <option value="rating-asc">По рейтингу (низкий)</option>
@@ -162,20 +162,20 @@ const GuideCatalogPage: React.FC = () => {
 
             {/* Результаты */}
             {filteredGuides.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
                 {filteredGuides.map(guide => (
                   <GuideCard key={guide.id} guide={guide} />
                 ))}
               </div>
             ) : (
-              <div className="bg-white rounded-lg shadow-md p-8 text-center">
-                <h3 className="text-xl font-semibold mb-2">Нет результатов</h3>
-                <p className="text-gray-600 mb-4">
+              <div className="bg-white rounded-lg shadow-md p-4 sm:p-8 text-center">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">Нет результатов</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">
                   К сожалению, гидов, соответствующих вашим критериям, не найдено.
                 </p>
                 <button 
                   onClick={resetFilters}
-                  className="btn btn-primary"
+                  className="btn btn-primary text-sm"
                 >
                   Сбросить фильтры
                 </button>
