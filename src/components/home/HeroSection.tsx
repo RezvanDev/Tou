@@ -74,7 +74,7 @@ const HeroSection: React.FC = () => {
 
         {/* Форма поиска */}
         <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-2 max-w-4xl mx-auto transform hover:scale-[1.02] transition-transform duration-300">
-          <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+          <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Город */}
             <div className="relative group">
               <div className="flex items-center text-gray-600 absolute left-4 top-1/2 transform -translate-y-1/2 group-hover:text-blue-500 transition-colors">
@@ -83,7 +83,7 @@ const HeroSection: React.FC = () => {
               <select
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="w-full bg-gray-50 p-4 pl-12 rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:bg-gray-100"
+                className="w-full bg-gray-50 p-4 pl-12 rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:bg-gray-100 appearance-none"
               >
                 <option value="">Выберите город</option>
                 {cities.map(city => (
@@ -115,7 +115,7 @@ const HeroSection: React.FC = () => {
               <select
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
-                className="w-full bg-gray-50 p-4 pl-12 rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:bg-gray-100"
+                className="w-full bg-gray-50 p-4 pl-12 rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:bg-gray-100 appearance-none"
               >
                 <option value="">Выберите язык</option>
                 {languages.map(lang => (
@@ -124,7 +124,7 @@ const HeroSection: React.FC = () => {
               </select>
             </div>
 
-            {/* Категория */}
+            {/* Тип экскурсии */}
             <div className="relative group">
               <div className="flex items-center">
                 <div className="flex items-center text-gray-600 absolute left-4 top-1/2 transform -translate-y-1/2 group-hover:text-blue-500 transition-colors">
@@ -133,7 +133,7 @@ const HeroSection: React.FC = () => {
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full bg-gray-50 p-4 pl-12 rounded-xl text-dark-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:bg-gray-100"
+                  className="w-full bg-gray-50 p-4 pl-12 rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:bg-gray-100 appearance-none"
                 >
                   <option value="">Тип экскурсии</option>
                   {tourCategories.map(cat => (
