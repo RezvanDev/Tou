@@ -1,6 +1,6 @@
 import React from 'react';
 import { X } from 'lucide-react';
-import { cities, categories, languages } from '../../data/mockData';
+import { cities, tourCategories, languages } from '../../data/mockData';
 
 interface FilterProps {
   filters: {
@@ -56,7 +56,7 @@ const GuideFilter: React.FC<FilterProps> = ({
           >
             <option value="">Все города</option>
             {cities.map(city => (
-              <option key={city} value={city}>{city}</option>
+              <option key={city.id} value={city.name}>{city.name}</option>
             ))}
           </select>
         </div>
@@ -73,7 +73,7 @@ const GuideFilter: React.FC<FilterProps> = ({
             className="input-field py-1.5 sm:py-2 text-sm"
           >
             <option value="">Все категории</option>
-            {categories.map(category => (
+            {tourCategories.map(category => (
               <option key={category} value={category}>{category}</option>
             ))}
           </select>
