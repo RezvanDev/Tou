@@ -11,7 +11,7 @@ export interface Guide {
   bio: string;
   certificates: string[];
   availableDates: string[];
-  tours: Tour[];
+  tours: Tour[] | null;
 }
 
 export interface Tour {
@@ -21,7 +21,7 @@ export interface Tour {
   duration: string;
   image: string;
   city: string;
-  category: string;
+  category: string | null;
   price: number;
   maxParticipants: number;
   includes: string[];
@@ -293,6 +293,57 @@ export const guides: Guide[] = [
       '2025-05-24', '2025-05-25', '2025-05-31'
     ],
     tours: [tours[0]]
+  },
+  {
+    id: 3,
+    name: 'Otabekova Sevara Otabek qizi',
+    avatar: 'https://i.postimg.cc/2Spwq4bt/temp-Image2-XBHCS.avif',
+    city: 'Xorazm viloyati va Qoraqalpog’iston respublikasi',
+    languages: ['Английский','Узбекский'],
+    rating: 0,
+    reviewCount: 0,
+    shortDescription: 'I love giving exact history of everything and I am sociable that you can ask me everything you are interested.',
+    bio: 'My name is Sevara. I conduct both classic and authors tours: from walks along ancient streets to gastronomic journeys through local cuisine. My excursions are filled with facts, legends and a warm atmosphere. I speak Russian, English and French fluently. I work with both individual tourists and groups. I pay great attention to detail, making each excursion interesting, lively and memorable.  I love to share my love for Uzbekistan and will be happy to show you its true soul! Im professional guide in ancient region Khorezm and Qaraqalpagstan republic.Im studying at the state university in guiding and interpreting in Foreign languages faculty.',
+    certificates: ['Лицензированный гид Министерства туризма'],
+    availableDates: [
+      '2025-05-10', '2025-05-11', '2025-05-17', '2025-05-18',
+      '2025-05-24', '2025-05-25', '2025-05-31'
+    ],
+    tours: [tours[0]]
+  },
+  {
+    id: 4,
+    name: 'Kodirov Djamshed Sultanovich',
+    avatar: 'https://i.postimg.cc/43d259VZ/temp-Image-Y1032h.avif',
+    city: 'Самарканд',
+    languages: ['Английский','Узбекский', 'Русский', 'Таджикский'],
+    rating: 0,
+    reviewCount: 0,
+    shortDescription: ' Я окончил исторический факультет Самаркандского государственного университета и с юности увлечён культурой и наследием Узбекистана.',
+    bio: "Меня зовут Джамшед, я профессиональный гид. Могу вести экскурсию на английском, русском, узбекском и на таджикском. Я закончил институт иностранных языков в Самарканде, факультет английской филологии. Также преподаю английский язык в местной школе. Увлекаюсь мировой историей и наследием местной мировой культурой. Работаю индивидуальным, так и с группами. Я предлогаю туры в которым вы будете ощущать себя как в сказке 1001 ночь. Средневековый город медресе и минареты, мечети и голубые купола и шумный восточный базар, где вы можете прогуляться покупая сувениры у местных мастеров. Также можете попробовать плов, манты, самсу и халву каторые готовят местные шеф повара только для вас (незабываемый вкус гарантированно). Местная история, факты и легенды обещаю будет увлекательный.  ",
+    certificates: ['Лицензированный гид Министерства туризма'],
+    availableDates: [
+      '2025-05-10', '2025-05-11', '2025-05-17', '2025-05-18',
+      '2025-05-24', '2025-05-25', '2025-05-31'
+    ],
+    tours: [tours[0], tours[1]]
+  },
+  {
+    id: 5,
+    name: 'Дощанова Мияссар Ещжанбаевна. ',
+    avatar: 'https://i.postimg.cc/7Ps6tvFk/temp-Image-Gm-Zzqt.avif',
+    city: 'Самарканд',
+    languages: ['Русский'],
+    rating: 0,
+    reviewCount: 0,
+    shortDescription: ' Я окончил исторический факультет Самаркандского государственного университета и с юности увлечён культурой и наследием Узбекистана.',
+      bio: "Меня зовут Мияссар, я профессиональный гид по Самарканду на русском языке. Стаж работы в сфере туризма с 2003 года ( 22- года). В основном занималась преподавательской деятельностью в Самаркандском колледже туризма и Самаркандском Международном Университете туризма Silk Road, где преподавала уроки будущим гидам и туроператорам. С 2023 года полностью перешла на работу гида по Самарканду. Специализируюсь на экскурсиях по Самарканду ( локально). Провожу классические экскурсии и авторские экскурсии, насыщенные фактами, легендами, рассказами о традициях и ценностях нашего узбекского народа. Свободно владею русским языком! Работ с разными по контингенту группами, но предпочитаю индивидуальные эксклюзивные туры. Стараюсь, чтобы каждая проведенная моя экскурсия запомнилась нашим гостям своей теплой атмосферой и интересной историей. Люблю свой город и поэтому презентую его так, чтобы Самарканд полюбил и запомнил каждый посетитель нашего города!",
+      certificates: ['Лицензированный гид Министерства туризма'],
+    availableDates: [
+      '2025-05-10', '2025-05-11', '2025-05-17', '2025-05-18',
+      '2025-05-24', '2025-05-25', '2025-05-31'
+    ],
+    tours: [tours[0], tours[1]]
   }
 ];
 
