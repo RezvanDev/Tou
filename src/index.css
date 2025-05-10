@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply font-sans text-dark-500;
+    @apply font-sans text-dark-500 antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -34,52 +34,64 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 !important;
   }
   
   .btn-primary {
-    @apply bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg;
+    @apply bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg !important;
   }
   
   .btn-secondary {
-    @apply bg-green-500 text-white hover:bg-green-600 focus:ring-green-500;
+    @apply bg-green-500 text-white hover:bg-green-600 focus:ring-green-500 !important;
   }
   
   .btn-accent {
-    @apply bg-terracotta-500 text-white hover:bg-terracotta-600 hover:shadow-lg;
+    @apply bg-terracotta-500 text-white hover:bg-terracotta-600 hover:shadow-lg !important;
   }
   
   .btn-outline {
-    @apply border-2 border-gray-300 text-gray-700 hover:border-gray-400;
+    @apply border-2 border-gray-300 text-gray-700 hover:border-gray-400 !important;
   }
   
   .container-custom {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 !important;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-card transition-shadow duration-300 hover:shadow-card-hover overflow-hidden;
+    @apply bg-white rounded-lg shadow-card transition-shadow duration-300 hover:shadow-card-hover overflow-hidden !important;
   }
   
   .input-field {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 !important;
+  }
+  
+  .form-group {
+    @apply mb-4 !important;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1 !important;
+  }
+  
+  .form-error {
+    @apply text-red-500 text-sm mt-1 !important;
   }
   
   .section {
-    @apply py-16 md:py-24;
+    @apply py-16 md:py-24 !important;
   }
   
   .section-title {
-    @apply text-center mb-10 md:mb-12 lg:mb-16;
+    @apply text-center mb-10 md:mb-12 lg:mb-16 !important;
   }
   
   .section-title h2 {
-    @apply inline-block relative;
+    @apply inline-block relative !important;
   }
   
   .section-title h2:after {
     content: '';
-    @apply absolute bottom-0 left-1/2 w-16 h-1 bg-terracotta-500 transform -translate-x-1/2 mt-2;
+    @apply absolute bottom-0 left-1/2 w-16 h-1 bg-terracotta-500 transform -translate-x-1/2 mt-2 !important;
   }
   
   .uzbek-pattern {

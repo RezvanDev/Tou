@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  important: true,
   theme: {
     extend: {
       fontFamily: {
@@ -62,8 +63,8 @@ export default {
         },
       },
       backgroundImage: {
-        'hero-pattern': "url('https://images.pexels.com/photos/4514732/pexels-photo-4514732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
-        'pattern-uzbek': "url('https://images.pexels.com/photos/4552350/pexels-photo-4552350.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+        'hero-pattern': "url('/images/hero-bg.jpg')",
+        'pattern-uzbek': "url('/images/uzbek-pattern.jpg')",
       },
       boxShadow: {
         'card': '0 4px 12px rgba(0, 0, 0, 0.05)',
@@ -72,4 +73,10 @@ export default {
     },
   },
   plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  corePlugins: {
+    preflight: true,
+  },
 };
