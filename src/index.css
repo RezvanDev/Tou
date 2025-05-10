@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply font-sans text-dark-500 antialiased;
+    @apply font-sans text-dark-500;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -34,69 +34,64 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 !important;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
   }
   
   .btn-primary {
-    @apply bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg !important;
+    @apply bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-green-500 text-white hover:bg-green-600 focus:ring-green-500 !important;
+    @apply bg-green-500 text-white hover:bg-green-600 focus:ring-green-500;
   }
   
   .btn-accent {
-    @apply bg-terracotta-500 text-white hover:bg-terracotta-600 hover:shadow-lg !important;
+    @apply bg-terracotta-500 text-white hover:bg-terracotta-600 hover:shadow-lg;
   }
   
   .btn-outline {
-    @apply border-2 border-gray-300 text-gray-700 hover:border-gray-400 !important;
+    @apply border-2 border-gray-300 text-gray-700 hover:border-gray-400;
   }
   
   .container-custom {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8 !important;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-card transition-shadow duration-300 hover:shadow-card-hover overflow-hidden !important;
+    @apply bg-white rounded-lg shadow-card transition-shadow duration-300 hover:shadow-card-hover overflow-hidden;
   }
   
   .input-field {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 !important;
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
   }
   
   .form-group {
-    @apply mb-4 !important;
+    @apply mb-4;
   }
   
   .form-label {
-    @apply block text-sm font-medium text-gray-700 mb-1 !important;
+    @apply block text-sm font-medium text-gray-700 mb-1;
   }
   
   .form-error {
-    @apply text-red-500 text-sm mt-1 !important;
+    @apply text-red-500 text-sm mt-1;
   }
   
   .section {
-    @apply py-16 md:py-24 !important;
+    @apply py-16 md:py-24;
   }
   
   .section-title {
-    @apply text-center mb-10 md:mb-12 lg:mb-16 !important;
+    @apply text-center mb-10 md:mb-12 lg:mb-16;
   }
   
   .section-title h2 {
-    @apply inline-block relative !important;
+    @apply inline-block relative;
   }
   
   .section-title h2:after {
     content: '';
-    @apply absolute bottom-0 left-1/2 w-16 h-1 bg-terracotta-500 transform -translate-x-1/2 mt-2 !important;
-  }
-  
-  .uzbek-pattern {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M0 20C0 8.954 8.954 0 20 0s20 8.954 20 20-8.954 20-20 20S0 31.046 0 20z" fill="none" stroke="%23E0704A" stroke-width="1"/></svg>');
-    background-size: 40px 40px;
+    @apply absolute bottom-0 left-1/2 w-16 h-1 bg-terracotta-500 transform -translate-x-1/2 mt-2;
   }
 }
 

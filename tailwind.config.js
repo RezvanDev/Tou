@@ -2,6 +2,21 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   important: true,
+  safelist: [
+    'btn',
+    'btn-primary',
+    'btn-secondary',
+    'btn-accent',
+    'btn-outline',
+    'input-field',
+    'form-group',
+    'form-label',
+    'form-error',
+    'container-custom',
+    'card',
+    'section',
+    'section-title'
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -79,4 +94,25 @@ export default {
   corePlugins: {
     preflight: true,
   },
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+    options: {
+      safelist: [
+        'btn',
+        'btn-primary',
+        'btn-secondary',
+        'btn-accent',
+        'btn-outline',
+        'input-field',
+        'form-group',
+        'form-label',
+        'form-error',
+        'container-custom',
+        'card',
+        'section',
+        'section-title'
+      ]
+    }
+  }
 };
