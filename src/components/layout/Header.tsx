@@ -245,18 +245,18 @@ const Header: React.FC = () => {
 
       {/* Модальное окно с формой */}
       {isContactFormOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full">
-            <div className="p-4 border-b flex justify-between items-center">
-              <h3 className="text-lg font-semibold">Подобрать гида</h3>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+          <div className="bg-white rounded-lg w-full max-w-md mx-auto my-4 sm:my-8">
+            <div className="p-3 sm:p-4 border-b flex justify-between items-center">
+              <h3 className="text-base sm:text-lg font-semibold">Подобрать гида</h3>
               <button 
                 onClick={() => setIsContactFormOpen(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-gray-700 p-1"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="p-4">
+            <div className="p-3 sm:p-4">
               <ContactForm 
                 title="Оставьте заявку"
                 description="Мы свяжемся с вами в ближайшее время"

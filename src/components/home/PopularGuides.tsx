@@ -4,6 +4,9 @@ import { Star, MapPin, Languages } from 'lucide-react';
 import { guides } from '../../data/mockData';
 
 const PopularGuides: React.FC = () => {
+  // Берем только первых 4 гидов
+  const popularGuides = guides.slice(0, 4);
+
   return (
     <section className="section bg-white">
       <div className="container-custom">
@@ -16,7 +19,7 @@ const PopularGuides: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-          {guides.map((guide) => (
+          {popularGuides.map((guide) => (
             <div 
               key={guide.id} 
               className="card group transition-all duration-300 transform hover:-translate-y-1"
