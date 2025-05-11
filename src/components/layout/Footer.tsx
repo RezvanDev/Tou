@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Globe, Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
 
+import logo from '../images/logo.png';
+
 const Footer: React.FC = () => {
   return (
     <footer className="bg-dark-500 text-white pt-16 pb-8">
@@ -10,10 +12,10 @@ const Footer: React.FC = () => {
           {/* О нас */}
           <div>
             <div className="flex items-center mb-4">
-              <Globe className="w-8 h-8 text-blue-400" />
+              <img src={logo} alt="GuideUz Logo" className="w-12 h-12" />
               <span className="ml-2 text-xl font-montserrat font-bold">
-                <span className="text-blue-400">Guide</span>
-                <span className="text-blue-500">Uz</span>
+                <span className="text-blue-400">GuideX</span>
+                <span className="text-blue-500"></span>
               </span>
             </div>
             <p className="text-gray-300 mb-4">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Globe } from 'lucide-react';
+import logo from '../components/images/logo.png';
 
 const RegisterPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -55,10 +56,10 @@ const RegisterPage: React.FC = () => {
       <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center">
-            <Globe className="w-10 h-10 text-terracotta-500" />
+            <img src={logo} alt="GuideUz Logo" className="w-12 h-12 sm:w-14 sm:h-14" />
             <span className="ml-2 text-2xl font-montserrat font-bold">
-              <span className="text-blue-500">Guide</span>
-              <span className="text-terracotta-500">Uz</span>
+              <span className="text-blue-500">GuideX</span>
+              <span className="text-terracotta-500"></span>
             </span>
           </div>
           <h2 className="mt-4 text-2xl font-bold text-gray-900">
