@@ -90,7 +90,6 @@ const ContactsPage: React.FC = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-800">Email</h3>
                     <p className="text-gray-600 mb-1">info@samarkand-tours.com</p>
-                    <p className="text-sm text-gray-500">Ответим в течение 2 часов</p>
                   </div>
                 </div>
                 
