@@ -15,7 +15,7 @@ const TermsPage: React.FC = () => {
             <section>
               <h2 className="text-xl font-semibold mb-4">1. Общие положения</h2>
               <p className="text-gray-600 mb-4">
-                Настоящие условия использования регулируют отношения между GuideUz и пользователями 
+                Настоящие условия использования регулируют отношения между Havas и пользователями 
                 нашего сервиса по подбору и бронированию гидов.
               </p>
               <p className="text-gray-600">
@@ -70,7 +70,7 @@ const TermsPage: React.FC = () => {
             <section>
               <h2 className="text-xl font-semibold mb-4">6. Ответственность</h2>
               <p className="text-gray-600 mb-4">
-                GuideUz не несет ответственности за:
+                Havas не несет ответственности за:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>Действия гидов вне рамок согласованной программы</li>
@@ -83,7 +83,7 @@ const TermsPage: React.FC = () => {
             <section>
               <h2 className="text-xl font-semibold mb-4">7. Интеллектуальная собственность</h2>
               <p className="text-gray-600 mb-4">
-                Весь контент на сайте GuideUz, включая:
+                Весь контент на сайте Havas, включая:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>Тексты и описания</li>
@@ -92,7 +92,7 @@ const TermsPage: React.FC = () => {
                 <li>Дизайн и программный код</li>
               </ul>
               <p className="text-gray-600 mt-4">
-                является интеллектуальной собственностью GuideUz и защищено законодательством.
+                является интеллектуальной собственностью Havas и защищено законодательством.
               </p>
             </section>
 
@@ -110,8 +110,8 @@ const TermsPage: React.FC = () => {
                 По всем вопросам, связанным с условиями использования, обращайтесь:
               </p>
               <div className="mt-4 space-y-2 text-gray-600">
-                <p>Email: terms@guideuz.com</p>
-                <p>Телефон: +998 95 031-00-16</p>
+                <p>Email: terms@havas.uz</p>
+                <p>Телефон: +99891 534 08 88</p>
                 <p>Адрес: г. Самарканд</p>
               </div>
             </section>

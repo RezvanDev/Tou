@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Globe, User, LogIn, MapPin, Clock, Camera } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import ContactForm from '../common/ContactForm';
+import LanguageSelector from '../common/LanguageSelector';
 import logo from '../images/logo.png';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [toursDropdownOpen, setToursDropdownOpen] = useState(false);
-  const { isAuthenticated, user, logout } = useAuth();
   const location = useLocation();
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [isToursDropdownOpen, setIsToursDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,13 +26,26 @@ const Header: React.FC = () => {
     setIsOpen(false);
   }, [location]);
 
+  // Закрытие выпадающего меню при клике вне его
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.tours-dropdown')) {
+        setIsToursDropdownOpen(false);
+      }
+    };
+
+    if (isToursDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isToursDropdownOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-  };
-
-  const handleLogout = () => {
-    logout();
-    setIsOpen(false);
   };
 
   const isActive = (path: string) => {
@@ -51,13 +62,13 @@ const Header: React.FC = () => {
     >
       <div className="container-custom flex items-center justify-between">
         {/* Логотип */}
-        <Link to="/" className="flex items-center">
-          <img src={logo} alt="GuideUz Logo" className="w-12 h-12 sm:w-14 sm:h-14" />
-          <span className="ml-2 text-lg sm:text-xl font-montserrat font-bold">
-            <span className="text-blue-400">GuideX</span>
-            <span className="text-blue-500"></span>
-          </span>
-        </Link>
+       <Link to="/" className="flex items-center">
+  <img 
+    src={logo} 
+    alt="Incoming Logo" 
+    className="w-24 h-24 sm:w-20 sm:h-20" 
+  />
+</Link>
 
         {/* Навигация - десктоп */}
         <nav className="hidden lg:flex space-x-6">
@@ -67,77 +78,85 @@ const Header: React.FC = () => {
           >
             Главная
           </Link>
-          <Link 
-            to="/guides" 
-            className={`text-sm font-medium ${isActive('/guides') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
-          >
-            Гиды
-          </Link>
-          <div className="relative">
+          <div className="relative tours-dropdown">
             <button
-              className={`text-sm font-medium flex items-center space-x-1 ${
-                isActive('/tours') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-              }`}
-              onClick={() => setToursDropdownOpen(!toursDropdownOpen)}
+              onClick={() => setIsToursDropdownOpen(!isToursDropdownOpen)}
+              className={`text-sm font-medium flex items-center ${isActive('/tours') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
             >
-              <span>Экскурсии</span>
-              <ChevronDown className="w-3.5 h-3.5" />
+              Туры
+              <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${isToursDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-            {toursDropdownOpen && (
-              <div className="absolute left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg z-20">
-                <Link to="/tours?category=history" className="flex items-center px-3 py-1.5 text-sm hover:bg-gray-100">
-                  <MapPin className="w-3.5 h-3.5 mr-2 text-blue-400" />
-                  Исторические
+            
+            {isToursDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                <Link
+                  to="/tours/turkmenistan"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsToursDropdownOpen(false)}
+                >
+                  Туркменистан
                 </Link>
-                <Link to="/tours?category=culture" className="flex items-center px-3 py-1.5 text-sm hover:bg-gray-100">
-                  <Clock className="w-3.5 h-3.5 mr-2 text-blue-400" />
-                  Культурные
+                <Link
+                  to="/tours/kazakhstan"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsToursDropdownOpen(false)}
+                >
+                  Казахстан
                 </Link>
-                <Link to="/tours?category=photo" className="flex items-center px-3 py-1.5 text-sm hover:bg-gray-100">
-                  <Camera className="w-3.5 h-3.5 mr-2 text-blue-400" />
-                  Фото-туры
+                <Link
+                  to="/tours/kyrgyzstan"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsToursDropdownOpen(false)}
+                >
+                  Кыргызстан
+                </Link>
+                <Link
+                  to="/tours/tajikistan"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsToursDropdownOpen(false)}
+                >
+                  Таджикистан
                 </Link>
               </div>
             )}
           </div>
+          <Link 
+            to="/packages" 
+            className={`text-sm font-medium ${isActive('/packages') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+          >
+            Тур пакеты
+          </Link>
+          <Link 
+            to="/about" 
+            className={`text-sm font-medium ${isActive('/about') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+          >
+            О нас
+          </Link>
+          <Link 
+            to="/contacts" 
+            className={`text-sm font-medium ${isActive('/contacts') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+          >
+            Контакты
+          </Link>
         </nav>
 
-        {/* Кнопки авторизации - десктоп */}
-        <div className="hidden lg:flex items-center space-x-3">
-          {isAuthenticated ? (
-            <div className="relative">
-              <button 
-                className="flex items-center space-x-1.5 font-medium text-sm"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-              >
-                <User className="w-4 h-4" />
-                <span>{user?.name}</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </button>
-              {dropdownOpen && (
-                <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg z-20">
-                  <Link to="/profile" className="block px-3 py-1.5 text-sm hover:bg-gray-100">Профиль</Link>
-                  <Link to="/bookings" className="block px-3 py-1.5 text-sm hover:bg-gray-100">Мои бронирования</Link>
-                  <button 
-                    onClick={handleLogout}
-                    className="block w-full text-left px-3 py-1.5 text-sm hover:bg-gray-100 text-red-500"
-                  >
-                    Выйти
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : (
-            <>
-              <Link to="/login" className="text-sm font-medium hover:text-blue-500 transition-colors">Войти</Link>
-              <button
-                onClick={() => setIsContactFormOpen(true)}
-                className="btn btn-primary text-sm py-2 px-4"
-              >
-                Подобрать гида
-              </button>
-            </>
-          )}
+        {/* Кнопки - десктоп */}
+        <div className="hidden lg:flex items-center space-x-4">
+          {/* Селектор языков */}
+          <LanguageSelector />
+          
+          <a 
+            href="tel:+998915340888"
+            className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            +99891 534 08 88
+          </a>
+          <button 
+            onClick={() => setIsContactFormOpen(true)}
+            className="btn btn-primary text-sm py-2 px-4"
+          >
+            Оставить заявку
+          </button>
         </div>
 
         {/* Мобильный гамбургер */}
@@ -158,86 +177,102 @@ const Header: React.FC = () => {
             >
               Главная
             </Link>
-            <Link 
-              to="/guides" 
-              className={`font-medium py-1.5 text-sm ${isActive('/guides') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Гиды
-            </Link>
-            <div className="space-y-1.5">
-              <div className="font-medium py-1.5 text-sm text-gray-700">Экскурсии</div>
-              <div className="pl-4 space-y-1.5">
-                <Link 
-                  to="/tours?category=history" 
-                  className="flex items-center py-1.5 text-sm text-gray-600 hover:text-blue-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <MapPin className="w-3.5 h-3.5 mr-2 text-blue-400" />
-                  Исторические
-                </Link>
-                <Link 
-                  to="/tours?category=culture" 
-                  className="flex items-center py-1.5 text-sm text-gray-600 hover:text-blue-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Clock className="w-3.5 h-3.5 mr-2 text-blue-400" />
-                  Культурные
-                </Link>
-                <Link 
-                  to="/tours?category=photo" 
-                  className="flex items-center py-1.5 text-sm text-gray-600 hover:text-blue-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Camera className="w-3.5 h-3.5 mr-2 text-blue-400" />
-                  Фото-туры
-                </Link>
-              </div>
-            </div>
-            <div className="border-t border-gray-200 pt-3 mt-1">
-              {isAuthenticated ? (
-                <>
-                  <Link 
-                    to="/profile" 
-                    className={`font-medium py-1.5 text-sm block ${isActive('/profile') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Профиль
-                  </Link>
-                  <Link 
-                    to="/bookings" 
-                    className={`font-medium py-1.5 text-sm block ${isActive('/bookings') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Мои бронирования
-                  </Link>
-                  <button 
-                    onClick={handleLogout}
-                    className="font-medium py-1.5 text-sm text-red-500 block"
-                  >
-                    Выйти
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link 
-                    to="/login" 
-                    className={`font-medium py-1.5 text-sm block ${isActive('/login') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Войти
-                  </Link>
-                  <button
+            <div className="tours-dropdown">
+              <button
+                onClick={() => setIsToursDropdownOpen(!isToursDropdownOpen)}
+                className={`font-medium py-1.5 text-sm flex items-center justify-between w-full ${isActive('/tours') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+              >
+                Туры
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isToursDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isToursDropdownOpen && (
+                <div className="ml-4 mt-2 space-y-1">
+                  <Link
+                    to="/tours/turkmenistan"
+                    className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
                     onClick={() => {
-                      setIsContactFormOpen(true);
+                      setIsToursDropdownOpen(false);
                       setIsOpen(false);
                     }}
-                    className="btn btn-primary mt-2 block text-center text-sm py-2"
                   >
-                    Подобрать гида
-                  </button>
-                </>
+                    Туркменистан
+                  </Link>
+                  <Link
+                    to="/tours/kazakhstan"
+                    className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => {
+                      setIsToursDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                  >
+                    Казахстан
+                  </Link>
+                  <Link
+                    to="/tours/kyrgyzstan"
+                    className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => {
+                      setIsToursDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                  >
+                    Кыргызстан
+                  </Link>
+                  <Link
+                    to="/tours/tajikistan"
+                    className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => {
+                      setIsToursDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                  >
+                    Таджикистан
+                  </Link>
+                </div>
               )}
+            </div>
+            <Link 
+              to="/packages" 
+              className={`font-medium py-1.5 text-sm ${isActive('/packages') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Тур пакеты
+            </Link>
+            <Link 
+              to="/about" 
+              className={`font-medium py-1.5 text-sm ${isActive('/about') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+              onClick={() => setIsOpen(false)}
+            >
+              О нас
+            </Link>
+            <Link 
+              to="/contacts" 
+              className={`font-medium py-1.5 text-sm ${isActive('/contacts') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Контакты
+            </Link>
+            <div className="border-t border-gray-200 pt-3 mt-1">
+              {/* Селектор языков для мобильных */}
+              <div className="mb-3">
+                <LanguageSelector />
+              </div>
+              
+              <a 
+                href="tel:+998915340888"
+                className="block font-medium py-1.5 text-sm text-gray-700 hover:text-blue-600"
+              >
+                +99891 534 08 88
+              </a>
+              <button
+                onClick={() => {
+                  setIsContactFormOpen(true);
+                  setIsOpen(false);
+                }}
+                className="btn btn-primary mt-2 block text-center text-sm py-2"
+              >
+                Оставить заявку
+              </button>
             </div>
           </div>
         )}
@@ -248,7 +283,7 @@ const Header: React.FC = () => {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
           <div className="bg-white rounded-lg w-full max-w-md mx-auto my-4">
             <div className="p-3 border-b flex justify-between items-center">
-              <h3 className="text-base font-semibold">Подобрать гида</h3>
+              <h3 className="text-base font-semibold">Оставить заявку</h3>
               <button 
                 onClick={() => setIsContactFormOpen(false)}
                 className="text-gray-500 hover:text-gray-700 p-1"
@@ -259,7 +294,7 @@ const Header: React.FC = () => {
             <div className="p-3">
               <ContactForm 
                 title="Оставьте заявку"
-                description="Мы свяжемся с вами в ближайшее время"
+                description="Наш менеджер перезвонит вам в течение 30 минут"
               />
             </div>
           </div>

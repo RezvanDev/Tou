@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const TELEGRAM_BOT_TOKEN = "7859150349:AAHdXyhqN1L7v6UNz0RUoOTFr3arR4NdqK0";
+const TELEGRAM_BOT_TOKEN = "8493632746:AAE8Q3hgFHEjmLWJEVau3FwTvGb7WhJa_bg";
 const TELEGRAM_CHAT_ID = -4772644044;
 
 interface ContactFormData {
@@ -22,13 +22,28 @@ interface BookingData {
   customerPhone: string;
 }
 
+interface TourBookingData {
+  tourName: string;
+  tourCity: string;
+  tourPrice: number;
+  tourDuration: string;
+  tourCategory: string;
+  customerName: string;
+  customerPhone: string;
+  customerEmail?: string;
+  message?: string;
+  selectedDate?: string;
+  selectedTime?: string;
+  participants?: number;
+}
+
 export const sendToTelegram = async (data: ContactFormData) => {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     throw new Error('Telegram configuration is missing');
   }
 
   const message = `
-🆕 Новая заявка на подбор гида
+🆕 Новое сообщение с вопросом
 
 👤 Имя: ${data.name}
 📱 Телефон: ${data.phone}
@@ -43,13 +58,12 @@ ${data.message ? `💬 Сообщение: ${data.message}` : ''}
       `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
       {
         chat_id: TELEGRAM_CHAT_ID,
-        text: message,
-        parse_mode: 'HTML'
+        text: message
       }
     );
 
     return response.data;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error sending message to Telegram:', error);
     throw error;
   }
@@ -82,14 +96,55 @@ export const sendBookingToTelegram = async (data: BookingData) => {
       `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
       {
         chat_id: TELEGRAM_CHAT_ID,
-        text: message,
-        parse_mode: 'HTML'
+        text: message
       }
     );
 
     return response.data;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error sending booking to Telegram:', error);
     throw error;
   }
-}; 
+};
+
+export const sendTourBookingToTelegram = async (data: TourBookingData) => {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    throw new Error('Telegram configuration is missing');
+  }
+
+  const message = `
+🎯 Новая заявка на тур
+
+🏛 Тур: ${data.tourName}
+🏙 Город: ${data.tourCity}
+💰 Цена: $${data.tourPrice}
+⏱ Продолжительность: ${data.tourDuration}
+🏷 Категория: ${data.tourCategory}
+
+👤 Имя клиента: ${data.customerName}
+📱 Телефон: ${data.customerPhone}
+${data.customerEmail ? `📧 Email: ${data.customerEmail}` : ''}
+${data.participants ? `👥 Количество участников: ${data.participants}` : ''}
+${data.selectedDate ? `📅 Выбранная дата: ${data.selectedDate}` : ''}
+${data.selectedTime ? `⏰ Выбранное время: ${data.selectedTime}` : ''}
+${data.message ? `💬 Сообщение: ${data.message}` : ''}
+
+⏰ Время заявки: ${new Date().toLocaleString('ru-RU')}
+  `;
+
+  try {
+    const response = await axios.post(
+      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+      {
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message
+      }
+    );
+
+    return response.data;
+  } catch (error: any) {
+    console.error('Error sending tour booking to Telegram:', error);
+    throw error;
+  }
+};
+

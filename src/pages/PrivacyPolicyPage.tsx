@@ -15,7 +15,7 @@ const PrivacyPolicyPage: React.FC = () => {
             <section>
               <h2 className="text-xl font-semibold mb-4">1. Общие положения</h2>
               <p className="text-gray-600 mb-4">
-                Настоящая политика конфиденциальности описывает, как GuideUz собирает, использует и защищает информацию, 
+                Настоящая политика конфиденциальности описывает, как Havas собирает, использует и защищает информацию, 
                 которую вы предоставляете при использовании нашего сервиса.
               </p>
               <p className="text-gray-600">
@@ -88,8 +88,8 @@ const PrivacyPolicyPage: React.FC = () => {
                 пожалуйста, свяжитесь с нами:
               </p>
               <div className="mt-4 space-y-2 text-gray-600">
-                <p>Email: privacy@guideuz.com</p>
-                <p>Телефон: +998 95 031-00-16</p>
+                <p>Email: privacy@havas.uz</p>
+                <p>Телефон: +99891 534 08 88</p>
                 <p>Адрес: г. Самарканд</p>
               </div>
             </section>

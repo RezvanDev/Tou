@@ -1,41 +1,38 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
-import GuideCatalogPage from './pages/GuideCatalogPage';
-import GuideProfilePage from './pages/GuideProfilePage';
-import BookingPage from './pages/BookingPage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import UserProfilePage from './pages/UserProfilePage';
+import AboutPage from './pages/AboutPage';
+import ContactsPage from './pages/ContactsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsPage from './pages/TermsPage';
+import ToursPage from './pages/ToursPage';
+import CityPage from './pages/CityPage';
+import PackagesPage from './pages/PackagesPage';
+import PackageDetailPage from './pages/PackageDetailPage';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="min-h-screen flex flex-col bg-beige-50">
-          <Header />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/guides" element={<GuideCatalogPage />} />
-              <Route path="/guides/:id" element={<GuideProfilePage />} />
-              <Route path="/booking/:guideId" element={<BookingPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/profile" element={<UserProfilePage />} />
-              <Route path="/privacy" element={<PrivacyPolicyPage />} />
-              <Route path="/terms" element={<TermsPage />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <div className="min-h-screen flex flex-col bg-beige-50">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/tours" element={<ToursPage />} />
+            <Route path="/tours/:country" element={<ToursPage />} />
+            <Route path="/city/:cityId" element={<CityPage />} />
+            <Route path="/packages" element={<PackagesPage />} />
+            <Route path="/packages/:packageId" element={<PackageDetailPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

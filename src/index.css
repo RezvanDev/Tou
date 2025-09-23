@@ -137,3 +137,214 @@
 .animate-slide-up {
   animation: slideUp 0.5s ease-out forwards;
 }
+
+/* Дополнительные анимации для карточек */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* Анимации для кнопок */
+.button-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.button-hover:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Анимация появления карточек */
+.card-enter {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.card-slide-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.card-slide-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+/* Пульсирующая анимация для активных элементов */
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+/* Анимация отскока для кнопок */
+.bounce-animation {
+  animation: bounce 1s;
+}
+
+/* Анимация перелистывания страниц */
+@keyframes flipPageLeft {
+  0% {
+    transform: perspective(1000px) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: perspective(1000px) rotateY(-90deg) scale(0.95);
+    opacity: 0.3;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(-180deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes flipPageRight {
+  0% {
+    transform: perspective(1000px) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: perspective(1000px) rotateY(90deg) scale(0.95);
+    opacity: 0.3;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(180deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pageSlideIn {
+  0% {
+    transform: translateX(100%) rotateY(15deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pageSlideOut {
+  0% {
+    transform: translateX(0) rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%) rotateY(-15deg);
+    opacity: 0;
+  }
+}
+
+/* Классы для анимации перелистывания */
+.flip-page-left {
+  animation: flipPageLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-page-right {
+  animation: flipPageRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-slide-in {
+  animation: pageSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-slide-out {
+  animation: pageSlideOut 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Плавные анимации для контента */
+@keyframes smoothFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes smoothSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.smooth-fade-in {
+  animation: smoothFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-slide-in {
+  animation: smoothSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Эффект тени страницы */
+.page-shadow {
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект перелистывания для контейнера */
+.book-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}

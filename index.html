@@ -1,72 +1,88 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>GuideX - Профессиональные гиды и экскурсии по Узбекистану | Бронирование онлайн</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Забронируйте профессиональных гидов по Узбекистану. Индивидуальные и групповые экскурсии по Ташкенту, Самарканду, Бухаре. Трансферы, туры, виза-поддержка. Лучшие цены, мгновенное подтверждение, отзывы туристов." />
-    <meta name="keywords" content="гиды Узбекистан, экскурсии Узбекистан, туры Узбекистан, бронирование гидов, индивидуальные экскурсии, Ташкент экскурсии, Самарканд экскурсии, Бухара экскурсии, русскоговорящие гиды Узбекистан, трансфер Узбекистан, виза Узбекистан, туры по Узбекистану, путеводитель Узбекистан, достопримечательности Узбекистана" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="author" content="GuideUz" />
-    <meta name="geo.region" content="UZ" />
-    <meta name="geo.placename" content="Tashkent" />
-    <link rel="canonical" href="https://guidex.pw" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="GuideUz - Профессиональные гиды и экскурсии по Узбекистану" />
-    <meta property="og:description" content="Забронируйте профессиональных гидов по Узбекистану. Индивидуальные и групповые экскурсии по Ташкенту, Самарканду, Бухаре. Трансферы, туры, виза-поддержка." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://guidex.pw" />
-    <meta property="og:image" content="https://guidex.pw/og-image.jpg" />
-    <meta property="og:site_name" content="GuideX" />
-    <meta property="og:locale" content="ru_RU" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="GuideX - Профессиональные гиды по Узбекистану" />
-    <meta name="twitter:description" content="Забронируйте профессиональных гидов по Узбекистану. Индивидуальные и групповые экскурсии по Ташкенту, Самарканду, Бухаре." />
-    <meta name="twitter:image" content="https://guidex.pw/twitter-image.jpg" />
-    
-    <!-- Mobile Optimization -->
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="format-detection" content="telephone=no" />
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TravelAgency",
-      "name": "GuideUz",
-      "description": "Профессиональные гиды и экскурсии по Узбекистану",
-      "url": "https://guidex.pw",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "UZ",
-        "addressLocality": "Tashkent"
-      },
-      "areaServed": "UZ",
-      "priceRange": "₽₽",
-      "openingHours": "Mo-Su 00:00-24:00",
-      "sameAs": [
-        "https://facebook.com/guideuz",
-        "https://instagram.com/guidexuz"
-      ]
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Havas - Туры по Узбекистану</title>
+
+  <!-- meta / og / seo (по желанию) -->
+  <meta name="description" content="Havas - туристическая компания в Самарканде. Организуем туры по Узбекистану, экскурсии, трансферы." />
+
+  <!-- Google Translate init -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'ru',
+        includedLanguages: 'ru,uz,en,de',
+        autoDisplay: false
+      }, 'google_translate_element');
+      // пометка — переводчик инициализирован
+      window.__gt_loaded = true;
     }
-    </script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+    // waitForComboAndApply: ждём появление .goog-te-combo и применяем язык (если указан)
+    function waitForComboAndApply(lang) {
+      const maxTries = 30;
+      let tries = 0;
+      const id = setInterval(() => {
+        tries++;
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+          if (lang) {
+            try {
+              select.value = lang;
+              select.dispatchEvent(new Event('change'));
+            } catch (e) {
+              // fallback: смена selectedIndex
+              for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === lang) {
+                  select.selectedIndex = i;
+                  select.dispatchEvent(new Event('change'));
+                  break;
+                }
+              }
+            }
+          }
+          clearInterval(id);
+        }
+        if (tries >= maxTries) clearInterval(id);
+      }, 300);
+    }
+
+    // Глобальная функция для вызова из React
+    window.changeLanguage = function(lang) {
+      try { localStorage.setItem('site_lang', lang); } catch(e){}
+      waitForComboAndApply(lang);
+    };
+
+    // При загрузке документа — если в localStorage есть язык, применяем
+    document.addEventListener('DOMContentLoaded', function() {
+      try {
+        const saved = localStorage.getItem('site_lang');
+        if (saved) {
+          // если translate уже загрузился — применим, иначе подождём
+          waitForComboAndApply(saved);
+        }
+      } catch (e) {}
+    });
+  </script>
+
+  <!-- подключаем скрипт Google Translate (асинхронно) -->
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+
+  <style>
+    /* Мы НЕ удаляем #google_translate_element из DOM, но прячем за экран */
+    #google_translate_element { position: absolute; left: -9999px; top: -9999px; visibility: hidden; }
+    /* Скрываем баннер/виджеты, если появятся */
+    .goog-te-banner-frame, .goog-te-gadget, .goog-te-gadget-simple, .skiptranslate { display: none !important; }
+  </style>
+</head>
+<body>
+  <!-- важный контейнер (в DOM) -->
+  <div id="google_translate_element"></div>
+
+  <!-- React root -->
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
 </html>
