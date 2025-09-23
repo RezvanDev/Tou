@@ -139,7 +139,7 @@ const AboutPage: React.FC = () => {
                 <Mail className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Email</h3>
-              <p className="opacity-90">info@havas.uz</p>
+              <p className="opacity-90">info@samarkand-tours.com</p>
             </div>
             
             <div className="text-center">

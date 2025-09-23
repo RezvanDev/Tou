@@ -15,7 +15,6 @@ export interface Tour {
   image: string;
   city: string;
   category: string | null;
-  price: number;
   maxParticipants: number;
   includes: string[];
   availableDates: string[];
@@ -661,7 +660,6 @@ export const tours: Tour[] = [
     image: 'https://cdn.pixabay.com/photo/2019/10/27/06/46/uzbekistan-4580839_1280.jpg',
     city: 'Ташкент',
     category: 'история',
-    price: 150,
     maxParticipants: 15,
     includes: [
       'Профессиональный гид',
@@ -684,7 +682,6 @@ export const tours: Tour[] = [
     image: 'https://cdn.pixabay.com/photo/2019/10/26/12/10/uzbekistan-4579308_1280.jpg',
     city: 'Самарканд',
     category: 'история',
-    price: 200,
     maxParticipants: 12,
     includes: [
       'Профессиональный гид',
@@ -707,7 +704,6 @@ export const tours: Tour[] = [
     image: 'https://cdn.pixabay.com/photo/2019/12/12/15/05/bukhara-4690965_1280.jpg',
     city: 'Бухара',
     category: 'история',
-    price: 180,
     maxParticipants: 8,
     includes: [
       'Профессиональный гид',
@@ -730,7 +726,6 @@ export const tours: Tour[] = [
     image: 'https://uzbekistan.travel/storage/app/media/Otabek/asosiydagi%20rasmlar/Fergana/cropped-images/2T0A1449-0-0-0-0-1728973602.jpg',
     city: 'Фергана',
     category: 'природа',
-    price: 160,
     maxParticipants: 6,
     includes: [
       'Профессиональный гид',
@@ -753,7 +748,6 @@ export const tours: Tour[] = [
     image: 'https://i.ibb.co/Cp8DjkSk/photo-2025-09-23-14-54-20.jpg',
     city: 'Хива',
     category: 'история',
-    price: 170,
     maxParticipants: 10,
     includes: [
       'Профессиональный гид',
@@ -776,7 +770,6 @@ export const tours: Tour[] = [
     image: 'https://cdn.pixabay.com/photo/2013/10/16/22/51/cemetery-196557_640.jpg',
     city: 'Коканд',
     category: 'история',
-    price: 140,
     maxParticipants: 12,
     includes: [
       'Профессиональный гид',
@@ -798,7 +791,6 @@ export const tours: Tour[] = [
     image: 'https://uzbekistan.travel/storage/app/media/noviy/zakhiriddin-mukhammad-bobur-1.jpg',
     city: 'Андижан',
     category: 'культура',
-    price: 130,
     maxParticipants: 10,
     includes: [
       'Профессиональный гид',
@@ -820,7 +812,6 @@ export const tours: Tour[] = [
     image: 'https://cdnuploads.aa.com.tr/uploads/Contents/2024/09/07/thumbs_b_c_b08d4dfc330e655bcf99b4b819a22e3d.jpg?v=172741',
     city: 'Заамин',
     category: 'природа',
-    price: 120,
     maxParticipants: 8,
     includes: [
       'Профессиональный гид',
@@ -842,7 +833,6 @@ export const tours: Tour[] = [
     image: 'https://perito.media/uploads/post/image/d52af98ad40772dff8b0412225753b8900dc3024b2d49ea22244a6562b7bf594/9672081762_be7564856a_k.jpg',
     city: 'Каракалпакстан',
     category: 'природа',
-    price: 250,
     maxParticipants: 6,
     includes: [
       'Профессиональный гид',
@@ -864,7 +854,6 @@ export const tours: Tour[] = [
     image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/e6/08/7c/outside-of-the-museum.jpg?w=1400&h=-1&s=1',
     city: 'Нукус',
     category: 'культура',
-    price: 110,
     maxParticipants: 8,
     includes: [
       'Профессиональный гид',
@@ -886,7 +875,6 @@ export const tours: Tour[] = [
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWRA-T58E87PAUNPK_QiO-xwpxl7CgXy-O-A&s',
     city: 'Термез',
     category: 'история',
-    price: 100,
     maxParticipants: 8,
     includes: [
       'Профессиональный гид',
@@ -908,7 +896,6 @@ export const tours: Tour[] = [
     image: 'https://centralasia-adventures.com/image/new/8b09f0ed9c-9-g.jpg',
     city: 'Чимган',
     category: 'природа',
-    price: 90,
     maxParticipants: 10,
     includes: [
       'Профессиональный гид',

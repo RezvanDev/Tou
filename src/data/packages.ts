@@ -347,7 +347,7 @@ export const tourPackages: TourPackage[] = [
     id: 'tashkent-khiva-bukhara-samarkand-8d',
     title: 'Ташкент — Хива — Бухара — Шахрисабз — Самарканд — Ташкент (8 дней)',
     duration: '8 дней / 7 ночей',
-    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/dc/1c/fa/palacio.jpg?w=2000&h=-1&s=1',
+    image: 'https://cdn.pixabay.com/photo/2019/12/12/15/05/bukhara-4690965_1280.jpg',
     itinerary: [
       {
         day: 'День 1 (воскресенье): Ташкент',

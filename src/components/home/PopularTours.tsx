@@ -31,9 +31,6 @@ const PopularTours: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                 <div className="absolute top-4 right-4">
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                    ${tour.price}
-                  </span>
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-white text-xl font-bold mb-1">{tour.title}</h3>

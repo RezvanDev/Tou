@@ -31,7 +31,7 @@ const TourModal: React.FC<TourModalProps> = ({ tour, isOpen, onClose }) => {
 
   const handleContactUs = () => {
     // Открываем телефонное приложение
-    window.location.href = 'tel:+998975465955';
+    window.location.href = 'tel:+998915340888';
   };
 
   const handleBookingInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -133,8 +133,6 @@ const TourModal: React.FC<TourModalProps> = ({ tour, isOpen, onClose }) => {
           {/* Price and Category */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
             <div className="mb-4 md:mb-0">
-              <span className="text-3xl font-bold text-blue-600">${tour.price}</span>
-              <span className="text-gray-500 ml-2">за человека</span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
@@ -170,7 +168,6 @@ const TourModal: React.FC<TourModalProps> = ({ tour, isOpen, onClose }) => {
                 <div key={index} className="relative group cursor-pointer">
                   <img 
                     src={tour.image} 
-                    alt={`${tour.title} - фото ${index}`}
                     className="w-full h-32 object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">

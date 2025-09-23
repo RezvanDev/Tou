@@ -109,8 +109,8 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 text-gray-400 mr-3" />
-                  <a href="mailto:info@havas.uz" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    info@havas.uz
+                  <a href="mailto:info@samarkand-tours.com" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  info@samarkand-tours.com
                   </a>
                 </div>
                 <div className="flex items-start">
