@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const TELEGRAM_BOT_TOKEN = "8493632746:AAE8Q3hgFHEjmLWJEVau3FwTvGb7WhJa_bg";
-const TELEGRAM_CHAT_ID = -4772644044;
+const TELEGRAM_BOT_TOKEN = "7816188706:AAEXK_GPnqx40JPCP2NiWdq0Cx5nORwJslM";
+const TELEGRAM_CHAT_ID = -4972107170;
 
 interface ContactFormData {
   name: string;
