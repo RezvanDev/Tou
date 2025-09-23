@@ -143,7 +143,7 @@ ${data.message ? `💬 Сообщение: ${data.message}` : ''}
 
     return response.data;
   } catch (error: any) {
-    console.error('Error sending tour booking to Telegram:', error);
+    console.error('Error sending tour bookinsg to Telegram:', error);
     throw error;
   }
 };
