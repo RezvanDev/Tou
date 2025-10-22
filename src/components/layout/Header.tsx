@@ -133,6 +133,12 @@ const Header: React.FC = () => {
             О нас
           </Link>
           <Link 
+            to="/sustainability" 
+            className={`text-sm font-medium ${isActive('/sustainability') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+          >
+            Устойчивость
+          </Link>
+          <Link 
             to="/contacts" 
             className={`text-sm font-medium ${isActive('/contacts') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
           >
@@ -244,6 +250,13 @@ const Header: React.FC = () => {
               onClick={() => setIsOpen(false)}
             >
               О нас
+            </Link>
+            <Link 
+              to="/sustainability" 
+              className={`font-medium py-1.5 text-sm ${isActive('/sustainability') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Устойчивость
             </Link>
             <Link 
               to="/contacts" 
