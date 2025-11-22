@@ -51,16 +51,65 @@ const ContactsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+      <section className="relative py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-teal-600 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
+        
+        {/* Floating Flags Animation */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[
+            { flag: '🇺🇿', name: 'Узбекистан', delay: 0, duration: 15, x: '10%', y: '20%' },
+            { flag: '🇰🇿', name: 'Казахстан', delay: 2, duration: 18, x: '85%', y: '30%' },
+            { flag: '🇰🇬', name: 'Кыргызстан', delay: 4, duration: 20, x: '15%', y: '70%' },
+            { flag: '🇹🇯', name: 'Таджикистан', delay: 1, duration: 16, x: '80%', y: '75%' },
+            { flag: '🇹🇲', name: 'Туркменистан', delay: 3, duration: 17, x: '50%', y: '10%' },
+          ].map((country, index) => (
+            <div
+              key={index}
+              className="absolute"
+              style={{
+                left: country.x,
+                top: country.y,
+                animation: `floatFlag ${country.duration}s ease-in-out infinite`,
+                animationDelay: `${country.delay}s`,
+              }}
+            >
+              <div className="text-2xl md:text-3xl drop-shadow-lg hover:scale-125 transition-transform duration-300">
+                {country.flag}
+              </div>
+            </div>
+          ))}
+        </div>
+        
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Контакты</h1>
-            <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">Контакты</h1>
+            <p className="text-xl md:text-2xl opacity-90 leading-relaxed drop-shadow-md">
               Свяжитесь с нами любым удобным способом. Мы всегда готовы ответить на ваши вопросы и помочь организовать незабываемое путешествие
             </p>
           </div>
         </div>
+        
+        {/* CSS Animation */}
+        <style>{`
+          @keyframes floatFlag {
+            0%, 100% {
+              transform: translate(0, 0) scale(1);
+              opacity: 0.7;
+            }
+            25% {
+              transform: translate(30px, -40px) scale(1.1);
+              opacity: 1;
+            }
+            50% {
+              transform: translate(-20px, -60px) scale(0.9);
+              opacity: 0.8;
+            }
+            75% {
+              transform: translate(-30px, -20px) scale(1.05);
+              opacity: 0.9;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Контактная информация */}

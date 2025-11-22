@@ -11,6 +11,7 @@ import CityPage from './pages/CityPage';
 import PackagesPage from './pages/PackagesPage';
 import PackageDetailPage from './pages/PackageDetailPage';
 import SustainabilityPage from './pages/SustainabilityPage';
+import ProfessionalismInSustainabilityPage from './pages/ProfessionalismInSustainabilityPage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/packages/:packageId" element={<PackageDetailPage />} />
             <Route path="/sustainability" element={<SustainabilityPage />} />
+            <Route path="/sustainability/professionalism" element={<ProfessionalismInSustainabilityPage />} />
           </Routes>
         </main>
         <Footer />

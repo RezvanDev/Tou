@@ -11,6 +11,7 @@ const Header: React.FC = () => {
   const location = useLocation();
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const [isToursDropdownOpen, setIsToursDropdownOpen] = useState(false);
+  const [isSustainabilityDropdownOpen, setIsSustainabilityDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,16 +34,19 @@ const Header: React.FC = () => {
       if (!target.closest('.tours-dropdown')) {
         setIsToursDropdownOpen(false);
       }
+      if (!target.closest('.sustainability-dropdown')) {
+        setIsSustainabilityDropdownOpen(false);
+      }
     };
 
-    if (isToursDropdownOpen) {
+    if (isToursDropdownOpen || isSustainabilityDropdownOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isToursDropdownOpen]);
+  }, [isToursDropdownOpen, isSustainabilityDropdownOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -132,12 +136,34 @@ const Header: React.FC = () => {
           >
             О нас
           </Link>
+          <div className="relative sustainability-dropdown">
+            <button
+              onClick={() => setIsSustainabilityDropdownOpen(!isSustainabilityDropdownOpen)}
+              className={`text-sm font-medium flex items-center ${isActive('/sustainability') || isActive('/sustainability/professionalism') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+            >
+              Устойчивость
+              <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${isSustainabilityDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {isSustainabilityDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
           <Link 
             to="/sustainability" 
-            className={`text-sm font-medium ${isActive('/sustainability') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsSustainabilityDropdownOpen(false)}
           >
             Устойчивость
           </Link>
+                <Link
+                  to="/sustainability/professionalism"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsSustainabilityDropdownOpen(false)}
+                >
+                  Профессионализм в устойчивости
+                </Link>
+              </div>
+            )}
+          </div>
           <Link 
             to="/contacts" 
             className={`text-sm font-medium ${isActive('/contacts') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
@@ -251,13 +277,40 @@ const Header: React.FC = () => {
             >
               О нас
             </Link>
-            <Link 
-              to="/sustainability" 
-              className={`font-medium py-1.5 text-sm ${isActive('/sustainability') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Устойчивость
-            </Link>
+            <div className="sustainability-dropdown">
+              <button
+                onClick={() => setIsSustainabilityDropdownOpen(!isSustainabilityDropdownOpen)}
+                className={`font-medium py-1.5 text-sm flex items-center justify-between w-full ${isActive('/sustainability') || isActive('/sustainability/professionalism') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+              >
+                Устойчивость
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isSustainabilityDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isSustainabilityDropdownOpen && (
+                <div className="ml-4 mt-2 space-y-1">
+                  <Link
+                    to="/sustainability"
+                    className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => {
+                      setIsSustainabilityDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                  >
+                    Устойчивость
+                  </Link>
+                  <Link
+                    to="/sustainability/professionalism"
+                    className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => {
+                      setIsSustainabilityDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                  >
+                    Профессионализм в устойчивости
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link 
               to="/contacts" 
               className={`font-medium py-1.5 text-sm ${isActive('/contacts') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
