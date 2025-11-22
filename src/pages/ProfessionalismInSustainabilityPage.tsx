@@ -93,11 +93,11 @@ const ProfessionalismInSustainabilityPage: React.FC = () => {
 
             {/* Certificate Image */}
             <div className="mb-12 flex justify-center">
-              <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-6">
-                <iframe
-                  src={certificate}
-                  className="w-full h-[600px] md:h-[800px] rounded-lg border border-gray-200"
-                  title="Сертификат Менеджера по устойчивости Travelife"
+              <div className="w-full max-w-3xl">
+                <img 
+                  src={certificate} 
+                  alt="Сертификат Менеджера по устойчивости Travelife"
+                  className="w-full h-auto rounded-lg shadow-lg"
                 />
               </div>
             </div>
@@ -191,4 +191,3 @@ const ProfessionalismInSustainabilityPage: React.FC = () => {
 };
 
 export default ProfessionalismInSustainabilityPage;
-
