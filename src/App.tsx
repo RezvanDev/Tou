@@ -10,8 +10,9 @@ import ToursPage from './pages/ToursPage';
 import CityPage from './pages/CityPage';
 import PackagesPage from './pages/PackagesPage';
 import PackageDetailPage from './pages/PackageDetailPage';
-import SustainabilityPage from './pages/SustainabilityPage';
+import MissionPage from './pages/MissionPage';
 import ProfessionalismInSustainabilityPage from './pages/ProfessionalismInSustainabilityPage';
+import PoliciesPage from './pages/PoliciesPage';
 
 function App() {
   return (
@@ -30,8 +31,10 @@ function App() {
             <Route path="/city/:cityId" element={<CityPage />} />
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/packages/:packageId" element={<PackageDetailPage />} />
-            <Route path="/sustainability" element={<SustainabilityPage />} />
-            <Route path="/sustainability/professionalism" element={<ProfessionalismInSustainabilityPage />} />
+            <Route path="/mission" element={<MissionPage />} />
+            <Route path="/mission/professionalism" element={<ProfessionalismInSustainabilityPage />} />
+            <Route path="/mission/policies" element={<PoliciesPage />} />
+            <Route path="/sustainability" element={<MissionPage />} /> {/* Redirect/Alias for old link if needed */}
           </Routes>
         </main>
         <Footer />

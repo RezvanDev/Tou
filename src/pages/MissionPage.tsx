@@ -6,10 +6,10 @@ import mission2 from '../components/images/misions/photo_2025-10-19 23.28.45.jpe
 import mission3 from '../components/images/misions/photo_2025-10-19 23.28.47.jpeg';
 import mission4 from '../components/images/misions/photo_2025-10-19 23.28.51.jpeg';
 
-const SustainabilityPage: React.FC = () => {
+const MissionPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Устойчивость - Havas';
+    document.title = 'Миссия - Havas';
   }, []);
 
   const missionImages = [mission1, mission2, mission3, mission4];
@@ -18,8 +18,8 @@ const SustainabilityPage: React.FC = () => {
     <div className="min-h-screen bg-beige-50">
       {/* English content for Google Translate - hidden */}
       <div style={{ display: 'none' }}>
-        <span>Устойчивость</span>
-        <h1>Sustainability</h1>
+        <span>Миссия</span>
+        <h1>Mission</h1>
         <h2>Mission of Havas Tourism Service in Sustainable Development</h2>
         <p>Havas Tourism Service sees tourism as a powerful tool for positive change. Our mission is to develop sustainable tourism that:</p>
         <h3>Preserves natural and cultural values</h3>
@@ -77,7 +77,7 @@ const SustainabilityPage: React.FC = () => {
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
-              Устойчивость
+              Миссия
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 leading-relaxed drop-shadow-md">
               Миссия Havas Tourism Service в области устойчивого развития
@@ -256,4 +256,4 @@ const SustainabilityPage: React.FC = () => {
   );
 };
 
-export default SustainabilityPage;
+export default MissionPage;

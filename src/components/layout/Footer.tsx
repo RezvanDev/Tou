@@ -19,16 +19,16 @@ const Footer: React.FC = () => {
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
                 Надежная туристическая компания, предоставляющая услуги для путешественников по Узбекистану и Центральной Азии.
               </p>
-              
+
               {/* Социальные сети */}
               <div className="flex space-x-3">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a href="https://www.instagram.com/guidexuz?igsh=MTQ1MHB0ZWlsZGd2eg==" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.instagram.com" className="text-gray-400 hover:text-white transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="https://t.me/Rezvanmax" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://t.me/Re" className="text-gray-400 hover:text-white transition-colors">
                   <MessageCircle className="w-5 h-5" />
                 </a>
               </div>
@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 text-gray-400 mr-3" />
                   <a href="mailto:info@samarkand-tours.com" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  info@samarkand-tours.com
+                    info@samarkand-tours.com
                   </a>
                 </div>
                 <div className="flex items-start">

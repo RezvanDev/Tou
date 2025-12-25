@@ -57,27 +57,26 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header 
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white shadow-md py-2' 
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-white shadow-md py-2'
           : 'bg-transparent py-3'
-      }`}
+        }`}
     >
       <div className="container-custom flex items-center justify-between">
         {/* Логотип */}
-       <Link to="/" className="flex items-center">
-  <img 
-    src={logo} 
-    alt="Incoming Logo" 
-    className="w-24 h-24 sm:w-20 sm:h-20" 
-  />
-</Link>
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="Incoming Logo"
+            className="w-24 h-24 sm:w-20 sm:h-20"
+          />
+        </Link>
 
         {/* Навигация - десктоп */}
         <nav className="hidden lg:flex space-x-6">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={`text-sm font-medium ${isActive('/') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
           >
             Главная
@@ -90,7 +89,7 @@ const Header: React.FC = () => {
               Туры
               <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${isToursDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-            
+
             {isToursDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                 <Link
@@ -124,14 +123,14 @@ const Header: React.FC = () => {
               </div>
             )}
           </div>
-          <Link 
-            to="/packages" 
+          <Link
+            to="/packages"
             className={`text-sm font-medium ${isActive('/packages') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
           >
             Тур пакеты
           </Link>
-          <Link 
-            to="/about" 
+          <Link
+            to="/about"
             className={`text-sm font-medium ${isActive('/about') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
           >
             О нас
@@ -139,33 +138,40 @@ const Header: React.FC = () => {
           <div className="relative sustainability-dropdown">
             <button
               onClick={() => setIsSustainabilityDropdownOpen(!isSustainabilityDropdownOpen)}
-              className={`text-sm font-medium flex items-center ${isActive('/sustainability') || isActive('/sustainability/professionalism') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`text-sm font-medium flex items-center ${isActive('/mission') || isActive('/mission/professionalism') || isActive('/mission/policies') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
             >
-              Устойчивость
+              Миссия
               <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${isSustainabilityDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-            
+
             {isSustainabilityDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-          <Link 
-            to="/sustainability" 
+              <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                <Link
+                  to="/mission"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   onClick={() => setIsSustainabilityDropdownOpen(false)}
-          >
-            Устойчивость
-          </Link>
+                >
+                  Миссия
+                </Link>
                 <Link
-                  to="/sustainability/professionalism"
+                  to="/mission/professionalism"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   onClick={() => setIsSustainabilityDropdownOpen(false)}
                 >
                   Профессионализм в устойчивости
                 </Link>
+                <Link
+                  to="/mission/policies"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  onClick={() => setIsSustainabilityDropdownOpen(false)}
+                >
+                  Политики устойчивости
+                </Link>
               </div>
             )}
           </div>
-          <Link 
-            to="/contacts" 
+          <Link
+            to="/contacts"
             className={`text-sm font-medium ${isActive('/contacts') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
           >
             Контакты
@@ -176,14 +182,14 @@ const Header: React.FC = () => {
         <div className="hidden lg:flex items-center space-x-4">
           {/* Селектор языков */}
           <LanguageSelector />
-          
-          <a 
+
+          <a
             href="tel:+998915340888"
             className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
           >
             +99891 534 08 88
           </a>
-          <button 
+          <button
             onClick={() => setIsContactFormOpen(true)}
             className="btn btn-primary text-sm py-2 px-4"
           >
@@ -192,7 +198,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Мобильный гамбургер */}
-        <button 
+        <button
           className="lg:hidden"
           onClick={toggleMenu}
         >
@@ -202,8 +208,8 @@ const Header: React.FC = () => {
         {/* Мобильное меню */}
         {isOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-md py-3 px-4 flex flex-col space-y-3 animate-fade-in">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className={`font-medium py-1.5 text-sm ${isActive('/') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
               onClick={() => setIsOpen(false)}
             >
@@ -217,7 +223,7 @@ const Header: React.FC = () => {
                 Туры
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isToursDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
-              
+
               {isToursDropdownOpen && (
                 <div className="ml-4 mt-2 space-y-1">
                   <Link
@@ -263,15 +269,15 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
-            <Link 
-              to="/packages" 
+            <Link
+              to="/packages"
               className={`font-medium py-1.5 text-sm ${isActive('/packages') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
               onClick={() => setIsOpen(false)}
             >
               Тур пакеты
             </Link>
-            <Link 
-              to="/about" 
+            <Link
+              to="/about"
               className={`font-medium py-1.5 text-sm ${isActive('/about') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
               onClick={() => setIsOpen(false)}
             >
@@ -280,26 +286,26 @@ const Header: React.FC = () => {
             <div className="sustainability-dropdown">
               <button
                 onClick={() => setIsSustainabilityDropdownOpen(!isSustainabilityDropdownOpen)}
-                className={`font-medium py-1.5 text-sm flex items-center justify-between w-full ${isActive('/sustainability') || isActive('/sustainability/professionalism') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
+                className={`font-medium py-1.5 text-sm flex items-center justify-between w-full ${isActive('/mission') || isActive('/mission/professionalism') || isActive('/mission/policies') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
               >
-                Устойчивость
+                Миссия
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isSustainabilityDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
-              
+
               {isSustainabilityDropdownOpen && (
                 <div className="ml-4 mt-2 space-y-1">
                   <Link
-                    to="/sustainability"
+                    to="/mission"
                     className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
                     onClick={() => {
                       setIsSustainabilityDropdownOpen(false);
                       setIsOpen(false);
                     }}
                   >
-                    Устойчивость
+                    Миссия
                   </Link>
                   <Link
-                    to="/sustainability/professionalism"
+                    to="/mission/professionalism"
                     className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
                     onClick={() => {
                       setIsSustainabilityDropdownOpen(false);
@@ -308,11 +314,21 @@ const Header: React.FC = () => {
                   >
                     Профессионализм в устойчивости
                   </Link>
+                  <Link
+                    to="/mission/policies"
+                    className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => {
+                      setIsSustainabilityDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                  >
+                    Политики устойчивости
+                  </Link>
                 </div>
               )}
             </div>
-            <Link 
-              to="/contacts" 
+            <Link
+              to="/contacts"
               className={`font-medium py-1.5 text-sm ${isActive('/contacts') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}
               onClick={() => setIsOpen(false)}
             >
@@ -323,8 +339,8 @@ const Header: React.FC = () => {
               <div className="mb-3">
                 <LanguageSelector />
               </div>
-              
-              <a 
+
+              <a
                 href="tel:+998915340888"
                 className="block font-medium py-1.5 text-sm text-gray-700 hover:text-blue-600"
               >
@@ -350,7 +366,7 @@ const Header: React.FC = () => {
           <div className="bg-white rounded-lg w-full max-w-md mx-auto my-4">
             <div className="p-3 border-b flex justify-between items-center">
               <h3 className="text-base font-semibold">Оставить заявку</h3>
-              <button 
+              <button
                 onClick={() => setIsContactFormOpen(false)}
                 className="text-gray-500 hover:text-gray-700 p-1"
               >
@@ -358,7 +374,7 @@ const Header: React.FC = () => {
               </button>
             </div>
             <div className="p-3">
-              <ContactForm 
+              <ContactForm
                 title="Оставьте заявку"
                 description="Наш менеджер перезвонит вам в течение 30 минут"
               />
